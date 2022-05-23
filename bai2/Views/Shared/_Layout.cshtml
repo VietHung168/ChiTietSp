@@ -1,0 +1,274 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - bai2</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/css/owl.carousel.css" rel="stylesheet" />
+    <link href="~/css/owl.theme.default.css" rel="stylesheet" />
+    <link href="~/css/owl.theme.green.css" rel="stylesheet" />
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+
+</head>
+<body>
+    <header class="header ">
+        <div class="header__top">
+            <div class="header__banner owl-carousel">
+                <div class="item" style="background-color: #F43C6D;">
+                    <section>
+                        <a aria-label="slide" href="/">
+                            <img width='1200' height='44' src="//cdn.tgdd.vn/2022/05/banner/TopBarDesk-1200x44-2.png">
+
+                        </a>
+                    </section>
+                </div>
+            </div>
+
+        </div>
+        <div class="header__main clearfix newsversion">
+            <section style="height:54px">
+                <a href="/" class="header-logo">
+                    <i class="icon-logo-newsversion"></i>
+                </a>
+                <form class="header-search">
+                    <input type="text" placeholder="Tìm sản phẩm, nhóm hàng, hãng...">
+                    <div class="clear-search">
+                        <i class="icon-clear-search"></i>
+                    </div>
+                    <button type="submit" class="submit-search">
+                        <i class="icon-search"></i>
+                    </button>
+                    <div class="search-show">
+                        <div class="search-result"></div>
+                    </div>
+                </form>
+                <div class="boxright">
+                    <a href="/" class="header__cart">
+                        <div class="header__cart-icon">
+                            <i class="icon-cart"></i>
+                            <div class="number"></div>
+                        </div>
+                        <div class="header__cart-money">
+                            Giỏ hàng
+                            <strong></strong>
+                        </div>
+                    </a>
+                    <div class="add-cart">
+                        <p class="add-cart-txt"><i class="icon-done"></i>Đã thêm sản phẩm</p>
+                        <a href="/" class="add-cart-btn">Xem giỏ hàng</a>
+                    </div>
+                    <div class="error-onlinesaving">
+                        <div>
+                            <i class="icon-iconx"></i>
+                            <p class="txt">
+                                Sản phẩm <strong class="name-onlinesaving">
+                                    Đồ chơi robot tương lai (xanh)
+                                    VECTO T6088/BL
+                                </strong> chỉ mua tối đa <strong class="quantity-onlionesaving">
+                                    số
+                                    lượng 1
+                                </strong>, vui lòng kiểm tra giỏ hàng.
+                            </p>
+                        </div>
+                    </div>
+                    <a href="tel:1900866874" class="header__hotline">
+                        Hotline (7h30 - 22h00)
+                        <br>
+                        <span>1900 866 874</span>
+                    </a>
+                    <a href="/" class="txtlink-right">
+                        CẨM NANG<br />MẸ VÀ BÉ
+                    </a>
+                </div>
+            </section>
+            <section>
+                <nav class="header__menu">
+                    <ul class="list-menu">
+
+                        @{
+                            for (int i = 0; i < 8; i++)
+                            {
+
+                                <li onmouseover="callHoverEvent()">
+                                    <a href="\" class="click-submenu">
+                                        <h3>@ViewBag.data.ListSanPhamHienThi.TenLoaiSanPham</h3>
+                                    </a>
+
+                                    <div class="showmenu">
+                                        <ul class="showmenu-sub">
+                                            @foreach (Md_SanPham sp in ViewBag.data.ListSanPhamHienThi.list_SP)
+                                            {
+                                                <li class="">
+                                                    <a href="/">
+                                                        <div class="imgmenu">
+                                                            <img src=@sp.List_imgSP[0] width="38" height="42">
+
+                                                        </div>
+                                                        <p>@sp.Ten_SanPham</p>
+                                                    </a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
+                                </li>
+
+                            }
+                        }
+                    </ul>
+                </nav>
+            </section>
+        </div>
+
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <section>
+            <div class="footer-box">
+                <div class="footer-tel item">
+                    <p class="tel-ttl">TỔNG ĐÀI <span></span></p>
+                    <div class="tel-ct">
+                        <p><span>Gọi mua:</span><a href="tel:1900866874">1900.866.874</a>(7:30 - 22:00)</p>
+                        <p><span>Khiếu nại:</span><a href="tel:1900866894">1900.866.894</a>(8:00 - 21:30)</p>
+                    </div>
+                    <p class="link-title">Kết nối với chúng tôi</p>
+                    <div class="link-social">
+                        <a rel="nofollow" href="/" target="_blank"
+                           class="link-social-item">
+                            <i class="iconlogo-facebook"></i>
+                        </a>
+                        <a rel="nofollow" href="/"
+                           target="_blank" class="link-social-item">
+                            <i class="iconlogo-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-menu item">
+                    <p class="footer-menu-ttl"><a class="nolink" href="#">HỆ THỐNG CỬA HÀNG</a></p>
+                    <ul class="submenu-footer">
+                        <li><a href="/he-thong-cua-hang-me-va-be">Hệ thống 30 cửa hàng</a></li>
+                        <li><a href="/noi-quy-cua-hang">Nội quy cửa hàng</a></li>
+                        <li><a href="/chat-luong-phuc-vu">Chất lượng phục vụ</a></li>
+                        <li><a href="/bao-hanh-doi-tra">Chính sách đổi trả, bảo hành</a></li>
+                    </ul>
+                </div>
+                <div class="footer-menu item">
+                    <p class="footer-menu-ttl"><a class="nolink" href="#">HỖ TRỢ KHÁCH HÀNG</a></p>
+                    <ul class="submenu-footer">
+                        <li><a href="/dieu-kien-giao-dich">Điều kiện giao dịch chung</a></li>
+                        <li><a href="/mua-hang-thanh-toan">Hướng dẫn mua hàng online</a></li>
+                        <li><a href="/chinh-sach-giao-hang">Chính sách giao hàng</a></li>
+                        <li><a href="/chinh-sach-thanh-toan">Chính sách thanh toán</a></li>
+                    </ul>
+                </div>
+                <div class="footer-menu item">
+                    <p class="footer-menu-ttl"><a class="nolink" href="#">VỀ AVAKIDS</a></p>
+                    <ul class="submenu-footer">
+                        <li><a href="/gioi-thieu">Giới thiệu công ty</a></li>
+                        <li><a href="/bao-mat-thong-tin">Chính sách bảo mật thông tin</a></li>
+                        <li>
+                            <a rel="nofollow"
+                               href="/">
+                                Xem
+                                bản mobile
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="link-mkt">
+                <a href="/" target="_blank" rel="nofollow">
+                    <i class="iconlogo-bocongthuong"></i>
+                </a>
+                <a href="/"
+                   title="Chung nhan Tin Nhiem Mang" target="_blank" rel="nofollow">
+                    <img class="lazyload"
+                         data-src="/" width="150" height="auto"
+                         alt="Chung nhan Tin Nhiem Mang">
+                </a>
+                <a href="//www.dmca.com/Protection/Status.aspx?ID=636f59d8-884a-46f9-a2f0-c581bd9dd9a9" target="_blank"
+                   title="DMCA.com Protection Status" class="dmca-badge" rel="nofollow">
+                    <i class="iconlogo-DMCA"></i>
+                </a>
+            </div>
+            <p class="copyright">
+                © 2018. Công ty cổ phần Thế Giới Di Động. GPDKKD: 0303217354 do sở KH & ĐT TP.HCM cấp ngày 02/01/2007.
+                <br>
+                Địa chỉ: 128 Trần Quang Khải, P. Tân Định, Q.1, TP.Hồ Chí Minh. Điện thoại: 028 38125960. Email:
+                cskh@avakids.com. Chịu trách nhiệm nội dung: Huỳnh Văn Tốt.
+            </p>
+        </section>
+        <div class="footer__logo">
+            <p class="footer__logo-hd">Ghé thăm các website khác cùng tập đoàn MWG</p>
+            <ul class="footer__logo-list">
+                <li>
+                    <a rel="nofollow" href="/" target="_blank">
+                        <i class="iconlogo-sport"></i>
+                    </a>
+                </li>
+                <li>
+                    <a rel="nofollow" href="/" target="_blank">
+                        <i class="iconlogo-fashion"></i>
+                    </a>
+                </li>
+                <li>
+                    <a rel="nofollow" href="/" target="_blank">
+                        <i class="iconlogo-ji"></i>
+                    </a>
+                </li>
+                <li>
+                    <a rel="nofollow" href="/" target="_blank">
+                        <i class="iconlogo-cycle"></i>
+                    </a>
+                </li>
+                <li>
+                    <a rel="nofollow" href="/" target="_blank">
+                        <i class="iconlogo-topzone"></i>
+                    </a>
+                </li>
+                <li>
+                    <a rel="nofollow" href="/" target="_blank">
+                        <i class="iconlogo-bachhoaxanh"></i>
+                    </a>
+                </li>
+                <li>
+                    <a rel="nofollow" href="/" target="_blank">
+                        <i class="iconlogo-thegioididong"></i>
+                    </a>
+                </li>
+                <li>
+                    <a rel="nofollow" href="/" target="_blank">
+                        <i class="iconlogo-dienmayxanh"></i>
+                    </a>
+                </li>
+                <li>
+                    <a rel="nofollow" href="/" target="_blank">
+                        <i class="iconlogo-ankhang"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    @*<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>*@
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.pack.js"></script>
+    <script src="~/js/owl.carousel.js"></script>
+    <script src="~/lib/vendors/foundation.min.js"></script>
+    <script src="~/lib/vendors/highlight.js"></script>
+    <script src="~/lib/vendors/jquery.min.js"></script>
+    <script src="~/lib/vendors/jquery.mousewheel.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/site.js"></script>
+    <script src="//cdn.tgdd.vn/mwgcart/bluekids/js/bundle/global.min.v202205110420.js" type="text/javascript"></script> 
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
